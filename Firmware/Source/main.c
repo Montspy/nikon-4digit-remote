@@ -25,15 +25,13 @@ static void CLK_Config(void)
     CLK_ClockSwitchConfig(CLK_SWITCHMODE_AUTO, CLK_SOURCE_HSI, DISABLE, CLK_CURRENTCLOCKSTATE_DISABLE);
 }
 
-
 static void ITC_Config(void)
 {
-  ITC_SetSoftwarePriority(ITC_IRQ_PORTD, ITC_PRIORITYLEVEL_3);       // I2C Pin interrupt
-  ITC_SetSoftwarePriority(ITC_IRQ_TIM2_OVF, ITC_PRIORITYLEVEL_3);    // I2C timeout
+  //ITC_SetSoftwarePriority(ITC_IRQ_PORTD, ITC_PRIORITYLEVEL_3);       // I2C Pin interrupt
+  //ITC_SetSoftwarePriority(ITC_IRQ_TIM2_OVF, ITC_PRIORITYLEVEL_3);    // I2C timeout
   ITC_SetSoftwarePriority(ITC_IRQ_TIM1_OVF, ITC_PRIORITYLEVEL_1);    // LED main interrupt
   ITC_SetSoftwarePriority(ITC_IRQ_TIM1_CAPCOM, ITC_PRIORITYLEVEL_1); // LED dimming interrupt
 }
-
 
 void main( void )
 {
@@ -42,16 +40,12 @@ void main( void )
   ITC_Config();
   enableInterrupts();
   led_init();
-  i2c_listen(0x70, emu_on_i2c_start_write, 0, emu_on_i2c_stop, emu_on_i2c_data_received, 0);
   
   while (1)
   {
-    emu_run();
     wfi();
   }
-
 }
-
 
 #ifdef USE_FULL_ASSERT
 

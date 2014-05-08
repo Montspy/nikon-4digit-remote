@@ -342,7 +342,7 @@ void LED_TIM1_UPDATE_ISR(void)
       turn_on = !turn_on;
       blink_count = 0;
     }
-    break;    
+    break;
   }
   if (turn_on)
     _led_display_char(digit);

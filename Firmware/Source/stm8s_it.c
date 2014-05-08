@@ -142,13 +142,13 @@ INTERRUPT_HANDLER(EXTI_PORTC_IRQHandler, 5)
   * @param  None
   * @retval None
   */
-extern void I2C_GPIO_ISR(void);
+//extern void I2C_GPIO_ISR(void);
 INTERRUPT_HANDLER(EXTI_PORTD_IRQHandler, 6)
 {
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
-  I2C_GPIO_ISR();
+  //I2C_GPIO_ISR();
 }
 
 /**
@@ -282,17 +282,19 @@ INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
   * @param  None
   * @retval None
   */
- extern void I2C_TIM2_UPDATE_ISR(void);
+ //extern void I2C_TIM2_UPDATE_ISR(void);
  INTERRUPT_HANDLER(TIM2_UPD_OVF_BRK_IRQHandler, 13)
  {
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
+   /*
    if (TIM2_GetITStatus(TIM2_IT_UPDATE))
    {
     I2C_TIM2_UPDATE_ISR();
     TIM2->SR1 = (uint8_t)(~(uint8_t)TIM2_IT_UPDATE);
    }
+   */
  }
 
 /**
