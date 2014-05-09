@@ -1,6 +1,4 @@
 #include "stm8s.h"
-#include "soft_i2c_slave.h"
-#include "adafruit_i2c_led_emu.h"
 #include "led.h"
 
 /**

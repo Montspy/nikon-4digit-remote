@@ -1592,10 +1592,16 @@
   <group>
     <name>Source</name>
     <file>
+      <name>$PROJ_DIR$\..\Source\ihm.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\Source\led.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\Source\main.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Source\pot.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\Source\stm8s_it.c</name>
