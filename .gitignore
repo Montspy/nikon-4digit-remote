@@ -5,3 +5,4 @@
 Firmware/Project/[Dd]ebug/
 Firmware/Project/settings/
 Firmware/Project/*.dep
+Firmware/Project/*.ewd

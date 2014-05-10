@@ -1574,6 +1574,9 @@
   <group>
     <name>FWLib</name>
     <file>
+      <name>$PROJ_DIR$\..\..\..\STM8S_StdPeriph_Lib_V2.1.0\Libraries\STM8S_StdPeriph_Driver\src\stm8s_adc1.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\..\STM8S_StdPeriph_Lib_V2.1.0\Libraries\STM8S_StdPeriph_Driver\src\stm8s_clk.c</name>
     </file>
     <file>
@@ -1602,6 +1605,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\Source\pot.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Source\shutter.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\Source\stm8s_it.c</name>

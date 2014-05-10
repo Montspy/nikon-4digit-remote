@@ -1,6 +1,17 @@
 #ifndef IHM_H
 #define IHM_H
 
+#define LED_A   0xa
+#define LED_B   0xb
+#define LED_D   0xd
+#define LED_E   0xe
+#define LED_F   0xf
+#define LED_L   16
+#define LED_P   17
+#define LED_S   0x5
+#define LED_T   18
+#define LED_U   19
+
 typedef enum {IHM_INIT, IHM_SELFTIMER, IHM_TIMELAPSE, IHM_BULB, IHM_DELDBULB, IHM_PRGMBULB,     // Choices (INC and DEC is browsing the modes, OK selects the mode)
               IHM_SELFTIMER_S, IHM_TIMELAPSE_S, IHM_BULB_S, IHM_DELDBULB_S, IHM_PRGMBULB_S,     // Selected modes, blinking digits (INC and DEC modifies the delay if available, 
                                                                                                 // OK activates the mode, CANCEL goes back to the choices)

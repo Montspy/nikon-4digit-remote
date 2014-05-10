@@ -282,19 +282,11 @@ INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
   * @param  None
   * @retval None
   */
- //extern void I2C_TIM2_UPDATE_ISR(void);
  INTERRUPT_HANDLER(TIM2_UPD_OVF_BRK_IRQHandler, 13)
  {
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
-   /*
-   if (TIM2_GetITStatus(TIM2_IT_UPDATE))
-   {
-    I2C_TIM2_UPDATE_ISR();
-    TIM2->SR1 = (uint8_t)(~(uint8_t)TIM2_IT_UPDATE);
-   }
-   */
  }
 
 /**
@@ -302,11 +294,22 @@ INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
   * @param  None
   * @retval None
   */
+ extern uint8_t pot_timer;
+ extern uint8_t shutter_timer;
+ extern int16_t pot_readSigned(void);
  INTERRUPT_HANDLER(TIM2_CAP_COM_IRQHandler, 14)
  {
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
+  if (TIM2_GetITStatus(TIM2_IT_CC1) != RESET)
+  {
+    /* Clear TIM2 Capture Compare1 interrupt pending bit*/
+    TIM2_ClearITPendingBit(TIM2_IT_CC1);
+
+    pot_timer++;
+    shutter_timer++;
+  }
  }
 #endif /*STM8S903*/
 
@@ -448,11 +451,17 @@ INTERRUPT_HANDLER(I2C_IRQHandler, 19)
   * @retval 
   * None
   */
+ extern void ADC1_IRQ(void);
+ extern uint16_t pot_rawADC;
  INTERRUPT_HANDLER(ADC1_IRQHandler, 22)
  {
     /* In order to detect unexpected events during development,
        it is recommended to set a breakpoint on the following instruction.
     */
+   
+    ADC1_IRQ();
+    
+    ADC1_ClearITPendingBit(ADC1_FLAG_EOC);
  }
 #endif /*STM8S208 or STM8S207 or STM8AF52Ax or STM8AF62Ax */
 

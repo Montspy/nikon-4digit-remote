@@ -1,6 +1,8 @@
 #include "stm8s.h"
 #include "led.h"
 
+#include "pot.h"
+
 /**
   * @brief  Configure system clock 
   * @param  None
@@ -25,23 +27,28 @@ static void CLK_Config(void)
 
 static void ITC_Config(void)
 {
-  //ITC_SetSoftwarePriority(ITC_IRQ_PORTD, ITC_PRIORITYLEVEL_3);       // I2C Pin interrupt
-  //ITC_SetSoftwarePriority(ITC_IRQ_TIM2_OVF, ITC_PRIORITYLEVEL_3);    // I2C timeout
+  ITC_SetSoftwarePriority(ITC_IRQ_ADC1, ITC_PRIORITYLEVEL_2); // POT timeout
+  ITC_SetSoftwarePriority(ITC_IRQ_TIM2_CAPCOM, ITC_PRIORITYLEVEL_2); // POT timeout
   ITC_SetSoftwarePriority(ITC_IRQ_TIM1_OVF, ITC_PRIORITYLEVEL_1);    // LED main interrupt
   ITC_SetSoftwarePriority(ITC_IRQ_TIM1_CAPCOM, ITC_PRIORITYLEVEL_1); // LED dimming interrupt
 }
 
 void main( void )
 {
-  CFG->GCR |= 0x01; /* disable SWIM to use PD1 as a standard I/O */ 
+  //CFG->GCR |= 0x01; /* disable SWIM to use PD1 as a standard I/O */ 
   CLK_Config();
   ITC_Config();
-  enableInterrupts();
   led_init();
+  pot_init();
+  
+  enableInterrupts();
+  
+  led_on();
   
   while (1)
   {
     wfi();
+    pot_updateState();
   }
 }
 
