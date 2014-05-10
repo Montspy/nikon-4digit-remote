@@ -2,7 +2,7 @@
 
 <workspace>
   <project>
-    <path>$WS_DIR$\I2C-LED.ewp</path>
+    <path>$WS_DIR$\nikon-4digit-remote.ewp</path>
   </project>
   <batchBuild/>
 </workspace>

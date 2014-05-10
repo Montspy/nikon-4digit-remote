@@ -480,7 +480,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>I2C-LED.srec</state>
+          <state>nikon-4digit-remote.srec</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -534,7 +534,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>I2C-LED.out</state>
+          <state>nikon-4digit-remote.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
