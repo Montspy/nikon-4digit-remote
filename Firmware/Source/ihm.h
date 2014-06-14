@@ -27,6 +27,10 @@ void IHM_cancel(void);
 
 void IHM_init(void);
 
-IHMState IHM_updateState(IHMInput input);
+IHMState IHM_updateState();
+
+// Timer helpers
+void IHM_initTimer(void);
+void IHM_restartTimer(void);        // IHM_timer = 0
 
 #endif

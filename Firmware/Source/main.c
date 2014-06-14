@@ -1,7 +1,9 @@
 #include "stm8s.h"
 #include "led.h"
 
+#include "ihm.h"
 #include "pot.h"
+#include "shutter.h"
 
 /**
   * @brief  Configure system clock 
@@ -40,6 +42,8 @@ void main( void )
   ITC_Config();
   led_init();
   pot_init();
+  shutter_init();
+  IHM_init();
   
   enableInterrupts();
   
@@ -49,6 +53,7 @@ void main( void )
   {
     wfi();
     pot_updateState();
+    IHM_updateState();
   }
 }
 

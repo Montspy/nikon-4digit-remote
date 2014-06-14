@@ -22,6 +22,7 @@ void pot_init(void) {
   pot_timer = 0;
 }
 
+extern IHMInput IHM_input;
 PotState pot_updateState(void) {
   int16_t position = pot_readSigned();
   

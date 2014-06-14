@@ -295,7 +295,7 @@ INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
   * @retval None
   */
  extern uint8_t pot_timer;
- extern uint8_t shutter_timer;
+ extern uint16_t IHM_timer;
  extern int16_t pot_readSigned(void);
  INTERRUPT_HANDLER(TIM2_CAP_COM_IRQHandler, 14)
  {
@@ -308,7 +308,7 @@ INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
     TIM2_ClearITPendingBit(TIM2_IT_CC1);
 
     pot_timer++;
-    shutter_timer++;
+    IHM_timer++;
   }
  }
 #endif /*STM8S903*/

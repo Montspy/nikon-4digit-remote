@@ -2,7 +2,7 @@
 #define POT_H
 
 #define POT_TH_MAX              410     // (4/5th of 512)
-#define POT_TH_NEUTRAL          102     // (1/5th of 512)
+#define POT_TH_NEUTRAL          204     // (2/5th of 512)
 
 #define TIM2_TICKS_PER_SEC      4       // 4 overflows per second
 #define POT_REPEAT_DELAY        2       // 1/2s (in TIM2 tick/sec)

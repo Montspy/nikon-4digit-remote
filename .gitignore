@@ -9,9 +9,9 @@ Firmware/Project/*.ewd
 
 #SolidWorks
 Hardware/Case/*.SLDPRT
-Hardware/Case/Parts*.SLDPRT
+Hardware/Case/Parts/*.SLDPRT
 Hardware/Case/*.SLDASM
-Hardware/Case/Parts*.SLDASM
+Hardware/Case/Parts/*.SLDASM
 
 #GCODE
 Hardware/Case/*.gcode
