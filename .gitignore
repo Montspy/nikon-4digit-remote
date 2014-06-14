@@ -6,3 +6,12 @@ Firmware/Project/[Dd]ebug/
 Firmware/Project/settings/
 Firmware/Project/*.dep
 Firmware/Project/*.ewd
+
+#SolidWorks
+Hardware/Case/*.SLDPRT
+Hardware/Case/Parts*.SLDPRT
+Hardware/Case/*.SLDASM
+Hardware/Case/Parts*.SLDASM
+
+#GCODE
+Hardware/Case/*.gcode
