@@ -85,6 +85,7 @@ IHMState IHM_updateState() {
     
     led_set_digit(1, LED_S);
     led_set_number(IHM_selfTimerDelay);
+    led_set_blink_mode(LED_BLINK_1ST);
     led_set_blink(LED_BLINK_1HZ);
     break;
     
@@ -94,6 +95,7 @@ IHMState IHM_updateState() {
     // CANCEL => stop timer, close shutter
     led_set_digit(1, LED_S);
     led_set_number(IHM_selfTimerDelay);
+    led_set_blink_mode(LED_BLINK_1ST);
     led_set_blink(LED_BLINK_2HZ);
     
     if(!actionDone) {
@@ -149,6 +151,7 @@ IHMState IHM_updateState() {
     
     led_set_digit(1, LED_L);
     led_set_number(IHM_timeLapseInterval);
+    led_set_blink_mode(LED_BLINK_1ST);
     led_set_blink(LED_BLINK_1HZ);
     break;
     
@@ -158,6 +161,7 @@ IHMState IHM_updateState() {
     // CANCEL => stop timer, close shutter
     led_set_digit(1, LED_L);
     led_set_number(IHM_timeLapseInterval);
+    led_set_blink_mode(LED_BLINK_1ST);
     led_set_blink(LED_BLINK_2HZ);
     
     IHM_restartTimer();
@@ -202,6 +206,7 @@ IHMState IHM_updateState() {
     led_set_digit(2, LED_U);
     led_set_digit(3, LED_L);
     led_set_digit(4, LED_B);
+    led_set_blink_mode(LED_BLINK_ALL);
     led_set_blink(LED_BLINK_1HZ);
     break;
     
@@ -212,6 +217,7 @@ IHMState IHM_updateState() {
     led_set_digit(2, LED_U);
     led_set_digit(3, LED_L);
     led_set_digit(4, LED_B);
+    led_set_blink_mode(LED_BLINK_ALL);
     led_set_blink(LED_BLINK_2HZ);
     
     shutter_open();
@@ -248,6 +254,7 @@ IHMState IHM_updateState() {
     led_set_digit(2, LED_B);
     led_set_digit(3, LED_L);
     led_set_digit(4, LED_B);
+    led_set_blink_mode(LED_BLINK_ALL);
     led_set_blink(LED_BLINK_1HZ);
     break;
     
@@ -258,6 +265,7 @@ IHMState IHM_updateState() {
     led_set_digit(2, LED_B);
     led_set_digit(3, LED_L);
     led_set_digit(4, LED_B);
+    led_set_blink_mode(LED_BLINK_ALL);
     led_set_blink(LED_BLINK_2HZ);
     
     IHM_restartTimer();
@@ -305,6 +313,7 @@ IHMState IHM_updateState() {
     
     led_set_digit(1, LED_P);
     led_set_number(IHM_bulbExposureTime);
+    led_set_blink_mode(LED_BLINK_1ST);
     led_set_blink(LED_BLINK_1HZ);
     break;
     
@@ -314,6 +323,7 @@ IHMState IHM_updateState() {
     // CANCEL => stop timer, close shutter
     led_set_digit(1, LED_P);
     led_set_number(IHM_bulbExposureTime);
+    led_set_blink_mode(LED_BLINK_1ST);
     led_set_blink(LED_BLINK_2HZ);
     
     shutter_open();

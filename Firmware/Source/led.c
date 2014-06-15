@@ -34,6 +34,7 @@ static char _display_buf[4] = {0};
 static uint8_t _duty;
 
 static led_blink_type _blink;
+static led_blink_mode _blink_mode;
 
 static void _led_write_segments(char ch)
 {
@@ -353,6 +354,11 @@ void led_set_blink(led_blink_type blink)
   _blink = blink;
 }
 
+void led_set_blink_mode(led_blink_mode blink_mode)
+{
+  _blink_mode = blink_mode;
+}
+
 
 void led_set_digit(uint8_t digit, uint8_t value)
 {
@@ -403,8 +409,21 @@ void LED_TIM1_UPDATE_ISR(void)
     }
     break;
   }
-  if (turn_on)
-    _led_display_char(digit);
+  
+  if(_blink_mode == LED_BLINK_1ST) {
+    // Blink only 1st digit
+    if(digit != 1)
+      _led_display_char(digit);
+    else  if (turn_on) {
+        _led_display_char(digit);
+    }
+  }
+  else if(_blink_mode == LED_BLINK_ALL) {
+    if (turn_on) {
+        _led_display_char(digit);
+    }
+  }
+  
   digit++;
   if (digit > 4)
     digit = 1;

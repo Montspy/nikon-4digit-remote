@@ -10,12 +10,18 @@ typedef enum
   LED_BLINK_HALFHZ
 } led_blink_type;
 
+typedef enum
+{
+  LED_BLINK_ALL = (uint8_t)0,
+  LED_BLINK_1ST
+} led_blink_mode;
 
 void led_init(void);
 void led_on(void);
 void led_off(void);
 void led_set_duty(uint8_t duty);
 void led_set_blink(led_blink_type blink);
+void led_set_blink_mode(led_blink_mode blink_mode);
 void led_set_digit(uint8_t digit, uint8_t valuie);
 
 void led_set_number(uint16_t value);
